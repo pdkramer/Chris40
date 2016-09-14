@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="Chris40.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chris40"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Layout="using:DevExpress.UI.Xaml.Layout"
+    mc:Ignorable="d">
+
+    <Layout:PageAdornerControl Header="Chris40" Background="CornflowerBlue" Foreground="Yellow">
+       <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Layout:Tile 
+                Name="PlayTile" 
+                Header="Play" 
+                Background="#0000CD" 
+                Size="Wide" 
+                RelativePanel.AlignTopWithPanel="True" 
+                Margin="5" 
+                NavigationTargetType="PlayPage">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Image Source="/Images/Play.png" Width="96" />
+                    <Layout:SlideDecorator ContentChangeInterval="0:0:3">
+                        <TextBlock Name="Song1" Foreground="Yellow" Text="Select music"/>
+                        <TextBlock Name="Song2" Foreground="Yellow" Text="Rock off"/>
+                        <TextBlock Name="Song3" Foreground="Yellow" Text="Rock on"/>
+                    </Layout:SlideDecorator>
+                </StackPanel>
+            </Layout:Tile>
+            <Layout:Tile 
+                Name="SelectMusicTile" 
+                Background="#2E8B57" 
+                RelativePanel.Below="PlayTile" 
+                Margin="5"
+                NavigationTargetType="SelectMusic" Header="Select Music">
+                <Image Source="/Images/USBConnected.png" Width="96" />
+            </Layout:Tile>
+            <Layout:Tile 
+                Name="MessageTile" 
+                Header="Message" 
+                Background="#DC143C" 
+                RelativePanel.RightOf="SelectMusicTile" 
+                RelativePanel.Below="PlayTile" 
+                Margin="5"
+                NavigationTargetType="MessagePage">
+                <Image Source="/Images/Message.png" Width="96" />
+                <Layout:Tile.BackContentTemplate>
+                    <DataTemplate>
+                        <Image Source="/Images/Chris.png" Stretch="Uniform" />
+                    </DataTemplate>
+                </Layout:Tile.BackContentTemplate>
+            </Layout:Tile>
+            <Layout:Tile 
+                Name="ToDoTile" 
+                Header="Notes" 
+                Background="#9400D3" 
+                RelativePanel.RightOf="PlayTile" 
+                Margin="5"
+                NavigationTargetType="ToDoPage">
+                <Image Source="/Images/UnderConstruction.png" Width="100" />
+            </Layout:Tile>
+        </RelativePanel>
+    </Layout:PageAdornerControl>
+</Page>

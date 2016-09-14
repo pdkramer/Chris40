@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Chris40.MessagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chris40"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Layout="using:DevExpress.UI.Xaml.Layout"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    mc:Ignorable="d">
+
+    <Layout:PageAdornerControl Header="Chris40" Background="CornflowerBlue" Foreground="Yellow">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <canvas:CanvasAnimatedControl Grid.Row="0" Draw="CanvasAnimatedControl_Draw" CreateResources="CanvasAnimatedControl_CreateResources"  ClearColor="CornflowerBlue" />
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="50">
+                <TextBlock Name="tbIP" />
+            </StackPanel>
+        </Grid>
+    </Layout:PageAdornerControl>
+</Page>
