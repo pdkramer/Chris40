@@ -2,7 +2,6 @@
     x:Class="Chris40.SelectMusic"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Chris40"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Layout="using:DevExpress.UI.Xaml.Layout"
@@ -22,12 +21,12 @@
                             Click="btnSelectMusicFolder_Click" 
                             Margin="0,36,0,0"/>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <CheckBox Name="chkCopyToLocal" Content="Copy to local storage" HorizontalAlignment="Center" />
-                        <CheckBox Name="chkDeleteLocal" Content="Delete local storage" HorizontalAlignment="Center" Margin="20,0,0,0" />
+                        <CheckBox Name="chkDeleteLocal" Content="Delete local storage" HorizontalAlignment="Center" />
+                        <CheckBox Name="chkCopyToLocal" Content="Copy to local storage" HorizontalAlignment="Center" Margin="20,0,0,0" />
                     </StackPanel>
                 </StackPanel>
                 <Button 
-                            Name="btnUseLocalStorage" 
+                            Name="btnUseLocalStorage"
                             Content="Use local storage" 
                             HorizontalAlignment="Center" 
                             Foreground="Yellow" 

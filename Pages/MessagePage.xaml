@@ -2,7 +2,6 @@
     x:Class="Chris40.MessagePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Chris40"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Layout="using:DevExpress.UI.Xaml.Layout"
@@ -22,7 +21,8 @@
                     <Charts:PieChart.Legend>
                         <Charts:Legend/>
                     </Charts:PieChart.Legend>
-                    <Charts:PieChart.Series>                        <Charts:Series>
+                    <Charts:PieChart.Series>
+                        <Charts:Series>
                             <Charts:Series.View>
                                 <Charts:PieSeriesView ShowLabels="True" LegendPointPattern="{}{A}: {V:n0}" >
                                     <Charts:PieSeriesView.Title>
@@ -35,7 +35,15 @@
                                         <Charts:YellowPalette />
                                     </Charts:PieSeriesView.Palette>
                                 </Charts:PieSeriesView>
-                            </Charts:Series.View>                            <Charts:Series.Data>                                <Charts:DataPointCollection>                                    <Charts:DataPoint x:Name="sliceUsed" Argument="Used" Value="1" />                                    <Charts:DataPoint x:Name="sliceFree" Argument="Free" Value="1" />                                </Charts:DataPointCollection>                            </Charts:Series.Data>                        </Charts:Series>                    </Charts:PieChart.Series>
+                            </Charts:Series.View>
+                            <Charts:Series.Data>
+                                <Charts:DataPointCollection>
+                                    <Charts:DataPoint x:Name="sliceUsed" Argument="Used" Value="1" />
+                                    <Charts:DataPoint x:Name="sliceFree" Argument="Free" Value="1" />
+                                </Charts:DataPointCollection>
+                            </Charts:Series.Data>
+                        </Charts:Series>
+                    </Charts:PieChart.Series>
                 </Charts:PieChart>
             </StackPanel>
         </Grid>
