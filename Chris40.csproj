@@ -172,6 +172,9 @@
     <SDKReference Include="DevExpress.Data, Version=15.1.1">
       <Name>DevExpress.Data</Name>
     </SDKReference>
+    <SDKReference Include="DevExpress.Visualization, Version=15.1.1">
+      <Name>DevExpress.Visualization</Name>
+    </SDKReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

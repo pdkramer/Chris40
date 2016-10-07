@@ -53,5 +53,10 @@ namespace Chris40
             PDFMusicViewer.DocumentSource = newMusic.FileName;
             PDFMusicViewer.Focus(FocusState.Programmatic);
         }
+
+        private void PaneButton_Click(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
     }
 }

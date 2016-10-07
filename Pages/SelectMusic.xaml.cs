@@ -7,26 +7,10 @@ using Windows.UI.Xaml.Controls;
 namespace Chris40
 {
     /// <summary>
-    /// Select what music will be used (removable storage or local storage) and provide minimal file control
+    /// Select what music will be used (removable storage or local storage) and provide copy/delete to local storage
     /// </summary>
     public sealed partial class SelectMusic : Page
     {
-        //*** Leave this for reference in case we want to go back to downloading a zip file for the sheet music PDFs
-        //
-        //private async Task<StorageFile> SaveFileAsync(Uri fileUri, StorageFolder folder, string fileName)
-        //{
-        //    // create the blank file in specified folder
-        //    var file = await folder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
-
-        //    // create the downloader instance and prepare for downloading the file
-        //    var backgroundDownloader = new BackgroundDownloader();
-        //    var downloadOperation = backgroundDownloader.CreateDownload(fileUri, file);
-
-        //    // start the download operation asynchronously
-        //    var result = await downloadOperation.StartAsync();
-        //    return file;
-        //}
-
         StorageFolder ourFolder = ApplicationData.Current.LocalFolder;
 
         public SelectMusic()
@@ -58,18 +42,21 @@ namespace Chris40
 
                 foreach (var folder in folderList)
                 {
+                    if (pdfFolder != null) break;  //we have found a directory of PDFs
+
                     StatusList.Items.Add("Folder: " + folder.Name);
                     IReadOnlyList<StorageFile> files = await folder.GetFilesAsync();
                     foreach (StorageFile file in files)
                     {
                         if (file.FileType == ".pdf")  //we have a PDF!
                         {
+                            if (pdfFolder == null) pdfFolder = folder;
+
                             if (chkCopyToLocal.IsChecked ?? false)
                             {
                                 await file.CopyAsync(ourFolder, file.Name, NameCollisionOption.ReplaceExisting);
                             }
-
-                            if (pdfFolder == null) pdfFolder = folder;
+                            else break;  //no need to go through them all here
                         }
                     }
                 }

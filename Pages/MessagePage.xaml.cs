@@ -1,4 +1,5 @@
-﻿using Microsoft.Graphics.Canvas;
+﻿using DevExpress.UI.Xaml.Charts;
+using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Graphics.Canvas.UI;
@@ -6,6 +7,7 @@ using Microsoft.Graphics.Canvas.UI.Xaml;
 using System;
 using System.Numerics;
 using Windows.Foundation;
+using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -36,8 +38,17 @@ namespace Chris40
             Loaded += MessagePage_Loaded;
         }
 
-        private void MessagePage_Loaded(object sender, RoutedEventArgs e)
+        private async void MessagePage_Loaded(object sender, RoutedEventArgs e)
         {
+            //Show a pie chart of the used and free storage space
+            var retrivedProperties = await ApplicationData.Current.LocalFolder.Properties.RetrievePropertiesAsync(new string[] { "System.FreeSpace", "System.Capacity" });
+            var spaceFree = ((UInt64)retrivedProperties["System.FreeSpace"]) / 1048576;
+            var spaceCapacity = ((UInt64)retrivedProperties["System.Capacity"]) / 1048576;
+            var spaceUsed = spaceCapacity - spaceFree;
+            sliceFree.Value = spaceFree;
+            sliceUsed.Value = spaceUsed;
+
+            //Show our IP address (if any)
             string ipInfo = String.Empty;
             foreach (Windows.Networking.HostName localHostName in Windows.Networking.Connectivity.NetworkInformation.GetHostNames())
             {
