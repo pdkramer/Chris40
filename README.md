@@ -1,6 +1,7 @@
 # Chris40
-Version 0.9
 
-**Chris40** PDF Viewer for UWP devices, especially Raspberry Pi.  Typically this is used to display sheet music.
+PDF Viewer for UWP devices, especially Raspberry Pi and other mobile devices that could be transported easily to performance environments.  Typically Chris40 is used to display sheet music.
 
-See Chris40.pdf for more information.
+Note that this app is dependent on Developer Express UWP components.
+
+See *Chris40.pdf* for more information.
